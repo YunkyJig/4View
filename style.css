@@ -1,0 +1,28 @@
+h1 {
+    color: blue;
+}
+
+.url-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0px;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.image {
+    height: 125px;
+    width: 125px;
+    background-color: brown;
+}
