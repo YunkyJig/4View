@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
+    <!-- <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;"> -->
     <link rel="stylesheet" href="style.css">
     <title>Name of my program</title>
   </head>
@@ -14,8 +15,8 @@
       <input type="url" placeholder="Enter url" name="thread_url" id="thread_url">
       <button id="search-btn">Search</button>
     </div>
-    <div class="image-grid">
-      <div class="image-container">
+    <div id="image-grid">
+      <!-- <div class="image-container">
         <div class="image">
 
         </div>
@@ -86,7 +87,7 @@
           <button>Preview Image</button>
           <button>Add to DL List</button>
         </div>
-      </div>
+      </div> -->
     </div>
     
     <script src="code.js"></script>

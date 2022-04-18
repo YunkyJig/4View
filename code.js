@@ -1,13 +1,19 @@
 let threadInput = document.getElementById('thread_url')
 
+
 threadInput.addEventListener('keyup', async ({key}) => {
     if(key === "Enter") {
         console.log(threadInput.value)
         if(validatedURL(threadInput.value)) {
-            const { threadNum, board  } = getThreadAndBoard(url)
-            const res = await axios.get(`http://localhost:3001?num=${threadNum}&board=${board}`)
+            const { threadNum, board  } = getThreadAndBoard(threadInput.value)
+            // const res = await axios.get(`http://localhost:3001?num=${threadNum}&board=${board}`)
+            console.log(`https://a.4cdn.org/${board}/thread/${threadNum}.json`)
+            let myHeaders = new Headers()
+            myHeaders.append('origin', 'http://boards.4chan.org/')
+            const res = await fetch(`https://a.4cdn.org/${board}/thread/${threadNum}.json`, {headers: myHeaders})
             // console.log(res.data)
-            const images = helper.getImagesFromApiRes(res.data.posts, board)
+            const images = getImagesFromApiRes(res.data.posts, board)
+            displayImages(images)
         }
         else {
             alert('enter valid url')
@@ -17,6 +23,47 @@ threadInput.addEventListener('keyup', async ({key}) => {
         // display them in grid format
     }
 })
+
+const displayImages = (images) => {
+    const imageGrid = document.getElementById("image-grid")
+
+    images.forEach(image => {
+        imageGrid.append(Image(image))
+        imageGrid.append(Buttons())
+    })
+}
+
+const Image = (image) => {
+    let img = document.createElement('img')
+    img.src = image.thumbnail.url
+    img.height = img.thumbnail.height
+    img.width = img.thumbnail.width
+
+    return img
+}
+
+const Buttons = () => {
+    let buttonContainer = document.createElement('div')
+    let previewBtn = document.createElement('button')
+    let dlListBtn = document.createElement('button')
+
+    previewBtn.innerText = 'Preview Image'
+    previewBtn.onclick = previewBtn
+    dlListBtn.innerText = 'Add to dl list'
+    dlListBtn.onclick = addToDLList
+
+    buttonContainer.append(previewBtn)
+    buttonContainer.append(dlListBtn)
+    return buttonContainer
+}
+
+const displayPreview = () => {
+    console.log('display preview')
+}
+
+const addToDLList = () => {
+    console.log('add to dllist')
+}
 
 const validatedURL = (url) => {
     const chanRegex = /https:\/\/boards\.(4channel|4chan)\.org\/([a-z]+)\/thread\/([0-9]+)/
