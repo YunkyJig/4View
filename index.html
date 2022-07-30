@@ -3,93 +3,30 @@
   <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
-    <!-- <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;"> -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://i.4cdn.org; connect-src https://4cdn.org https://*.4cdn.org; img-src https://i.4cdn.org; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <link rel="stylesheet" href="style.css">
     <title>Name of my program</title>
   </head>
   <body>
-    <!-- <h1>Gallery!</h1> -->
-    <div class="url-container">
-      <input type="url" placeholder="Enter url" name="thread_url" id="thread_url">
-      <button id="search-btn">Search</button>
-    </div>
-    <div id="image-grid">
-      <!-- <div class="image-container">
-        <div class="image">
-
+    <main class="main">
+      <div class="sidebar">
+        <div>
+          <a href="#">Search</a>
         </div>
-        <div class="options-container">
-          <button>Preview Image</button>
-          <button>Add to DL List</button>
+        <div>
+          <a href="review.html">Download List</a>
         </div>
       </div>
-      <div class="image-container">
-        <div class="image">
-
+      <div class="container">
+        <div class="url-container">
+          <input type="url" placeholder="Enter url" name="thread_url" id="thread_url">
+          <button id="search-btn">Search</button>
         </div>
-        <div class="options-container">
-          <button>Preview Image</button>
-          <button>Add to DL List</button>
-        </div>
-      </div>
-      <div class="image-container">
-        <div class="image">
-
-        </div>
-        <div class="options-container">
-          <button>Preview Image</button>
-          <button>Add to DL List</button>
+        <div id="image-grid">
         </div>
       </div>
-      <div class="image-container">
-        <div class="image">
-
-        </div>
-        <div class="options-container">
-          <button>Preview Image</button>
-          <button>Add to DL List</button>
-        </div>
-      </div>
-      <div class="image-container">
-        <div class="image">
-
-        </div>
-        <div class="options-container">
-          <button>Preview Image</button>
-          <button>Add to DL List</button>
-        </div>
-      </div>
-      <div class="image-container">
-        <div class="image">
-
-        </div>
-        <div class="options-container">
-          <button>Preview Image</button>
-          <button>Add to DL List</button>
-        </div>
-      </div>
-      <div class="image-container">
-        <div class="image">
-
-        </div>
-        <div class="options-container">
-          <button>Preview Image</button>
-          <button>Add to DL List</button>
-        </div>
-      </div>
-      <div class="image-container">
-        <div class="image">
-
-        </div>
-        <div class="options-container">
-          <button>Preview Image</button>
-          <button>Add to DL List</button>
-        </div>
-      </div> -->
-    </div>
-    
+    </main>
     <script src="code.js"></script>
   </body>
 </html>
